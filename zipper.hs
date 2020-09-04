@@ -16,5 +16,11 @@ prev :: Zipper a -> Zipper a
 prev (Zipper (y:ys) x xs) = Zipper ys y (x : xs)
 prev z = z
 
+isHead, isTail :: Zipper a -> Bool
+isHead (Zipper [] _ _) = True
+isHead _ = False
+isTail (Zipper _ _ []) = True
+isTail _ = False 
+
 mutZip :: (a -> a) -> Zipper a -> Zipper a
 mutZip f (Zipper h x t) = Zipper h (f x) t
