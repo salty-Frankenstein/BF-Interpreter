@@ -24,3 +24,6 @@ isTail _ = False
 
 mutZip :: (a -> a) -> Zipper a -> Zipper a
 mutZip f (Zipper h x t) = Zipper h (f x) t
+
+position :: Zipper a -> Int
+position (Zipper h _ _) = length h
