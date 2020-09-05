@@ -10,7 +10,6 @@ succB x = if x == 255 then 0 else x+1
 predB x = if x == 0 then 255 else x-1
 
 type Tape = Zipper Byte
-
 nextByte, prevByte, succByte, predByte, printByte, getByte :: StateT Tape IO ()
 nextByte = StateT $ \z -> return ((), next z)
 prevByte = StateT $ \z -> return ((), prev z)
@@ -53,7 +52,6 @@ findPosition x = do
         prevIns
         findPosition x
     else return ()
-        
 
 findMatch :: [(Int, Int)] -> Int -> Int
 findMatch l x = 
@@ -89,8 +87,6 @@ interpret table = do
             _ -> error "syntax error"
         nextIns
         interpret table
-        return ()
-
 
 isIns :: Char -> Bool
 isIns c = case c of

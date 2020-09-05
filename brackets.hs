@@ -32,6 +32,6 @@ match (s:ss) (l, r) i = do
     match ss (l, r) (i+1)
 
 runMatch :: String -> (Char, Char) -> [(Int, Int)]
-runMatch s p = snd$ runWriter $ (runStateT $ match s p 0) []
+runMatch s p = snd $ runWriter $ (runStateT $ match s p 0) []
 
 
