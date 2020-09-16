@@ -58,7 +58,6 @@ findMatch l x =
     let [(a,b)] = filter (\(a,b) -> a==x || b==x) l in
         if a==x then b else a
 
-
 interpret :: [(Int, Int)] -> StateT Code (StateT Tape IO) ()
 interpret table = do
     f <- isEnd
